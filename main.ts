@@ -216,3 +216,30 @@ function getTotal(result: Result13):number {
 
 var result13 = { a: 32, b: 58 }
 console.log(getTotal(result13))
+
+/*
+ * lesson14: インターフェースを継承してみよう
+ */
+console.log('--- LESSON14 ---')
+interface FirstResult14 { first: number }
+interface SecondResult14 { second: number }
+interface FinalResult14 extends FirstResult14, SecondResult14 {
+  other?: number
+}
+function getTotal14(result: FinalResult14):number {
+  if (result.other) {
+    return result.first + result.second + result.other
+  }
+  return result.first + result.second
+}
+var tomResult14 = {
+  first: 30,
+  second: 90
+}
+var bobResult14 = {
+  first: 10,
+  second: 20,
+  other: 100
+}
+console.log(getTotal14(tomResult14))
+console.log(getTotal14(bobResult14))

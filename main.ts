@@ -274,3 +274,19 @@ class User15 implements GameUser15 {
 
 var tom15 = new User15('tom')
 tom15.showScore()
+
+/*
+ * lesson16: ジェネリクスを使ってみよう
+ */
+console.log('--- LESSON16 ---')
+// function getStringArray16(value: string): string[] {
+//   return [value, value, value]
+// }
+// function getNumberArray16(value: number): number[] {
+//   return [value, value, value]
+// }
+function getArray16<T>(value: T): T[] {
+  return [value, value, value]
+}
+console.log(getArray16(3))
+console.log(getArray16('text'))

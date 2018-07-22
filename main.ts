@@ -38,16 +38,13 @@ e5 = [1, 2, 3]
 * lesson5: 列挙型を使ってみよう
 */
 console.log('--- LESSON5 ---')
-enum Signal {
-  Blue = 0,
-  Yellow = 1,
-  Red = 2
-}
-var result5: Signal
-console.log('1: ', 0 === Signal.Blue) // -> true
-console.log('2: ', 'Blue' === Signal[0]) // -> true
-console.log('3: ', Signal.Yellow) // -> 1
-console.log('4: ', Signal[2]) // -> Red
+// enum Signal5 { Blue = 0, Yellow = 1, Red = 2 }
+enum Signal5 { Blue, Yellow, Red }
+var result5: Signal5 = 2
+console.log('1: ', result5 === Signal5.Red) // -> true
+console.log('2: ', Signal5[result5]) // -> Red
+console.log('3: ', Signal5.Yellow) // -> 1
+console.log('4: ', Signal5[0]) // -> Blue
 
 /*
  * lesson6: 関数宣言を使ってみよう
@@ -217,8 +214,5 @@ function getTotal(result: Result13):number {
   return result.a + result.b
 }
 
-var result13 = {
-  a: 32,
-  b: 58
-}
+var result13 = { a: 32, b: 58 }
 console.log(getTotal(result13))

@@ -43,7 +43,7 @@ enum Signal {
   Yellow = 1,
   Red = 2
 }
-var result: Signal
+var result5: Signal
 console.log('1: ', 0 === Signal.Blue) // -> true
 console.log('2: ', 'Blue' === Signal[0]) // -> true
 console.log('3: ', Signal.Yellow) // -> 1
@@ -204,3 +204,21 @@ var bob12 = new User12('bob')
 var backs12 = new User12('backs')
 console.log(User12.count)
 User12.showDescription()
+
+/*
+ * lesson13: インターフェースを使ってみよう
+ */
+console.log('--- LESSON13 ---')
+// function getTotal(result: { a: number; b: number }):number {
+//   return result.a + result.b
+// }
+interface Result13 { a: number, b: number }
+function getTotal(result: Result13):number {
+  return result.a + result.b
+}
+
+var result13 = {
+  a: 32,
+  b: 58
+}
+console.log(getTotal(result13))

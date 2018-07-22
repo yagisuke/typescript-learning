@@ -110,3 +110,28 @@ var tom9 = new User9('Tom')
 console.log('--- LESSON9 ---')
 console.log(tom9.name)
 tom9.sayHi()
+
+/*
+ * lesson10: getterやsetterを使ってみよう
+ */
+class User10 {
+  constructor(private _name: string) {}
+
+  sayHi(): void {
+    console.log(`hi! i am ${this._name}.`)
+  }
+
+  get name() {
+    return this._name
+  }
+
+  set name(nameValue: string) {
+    this._name = nameValue
+  }
+}
+var tom10 = new User10('Tom')
+console.log('--- LESSON10 ---')
+// tom10._name -> private は、外から参照できない
+tom10.name = 'TOM'
+console.log(tom10.name)
+tom10.sayHi()

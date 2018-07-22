@@ -3,8 +3,8 @@
  */
 // $tsc main.ts // -> create the main.js
 // $node main.js // -> display hello world
-console.log('--- LESSON2 ---')
 class User {}
+console.log('--- LESSON2 ---')
 console.log('hello world')
 
 /*
@@ -50,14 +50,6 @@ console.log('4: ', Signal[2]) // -> Red
 /*
  * lesson6: 関数宣言を使ってみよう
  */
-console.log('--- LESSON6 ---')
-a6(1, 2)
-console.log(b6(3, 4))
-console.log(c6(5))
-console.log(c6(5, 6))
-console.log(d6(7))
-console.log(c6(7, 8))
-
 function a6(a: number, b: number): void {
   console.log(a + b)
 }
@@ -71,6 +63,13 @@ function c6(a: number, b?: number): number {
 function d6(a: number, b: number = 20): number {
   return a + b
 }
+console.log('--- LESSON6 ---')
+a6(1, 2)
+console.log(b6(3, 4))
+console.log(c6(5))
+console.log(c6(5, 6))
+console.log(d6(7))
+console.log(c6(7, 8))
 
 /*
  * lesson7: 関数式を使ってみよう
@@ -78,3 +77,17 @@ function d6(a: number, b: number = 20): number {
 console.log('--- LESSON7 ---')
 var a7 = (a: number, b: number): number => a + b
 console.log(a7(1, 2))
+
+/*
+ * lesson8: 関数のオーバーロードを使ってみよう
+ */
+function add(a: number, b: number): number // 関数のシグネチャ
+function add(a: string, b: string): string
+function add(a: any, b: any): any {
+  if (typeof a === 'string' && typeof b === 'string') return a + ' ' + b
+  return a + b
+}
+console.log('--- LESSON8 ---')
+console.log(add(1, 2))
+console.log(add('hello', 'world'))
+// console.log(add(3, 'world')) -> compile error

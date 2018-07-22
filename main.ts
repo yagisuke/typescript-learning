@@ -182,3 +182,25 @@ var bob11 = new AdminUser11('Bob', 23)
 bob11.sayHi()
 var crie11 = new HogeUser11('Crie', 32)
 crie11.sayHi()
+
+/*
+ * lesson12: 静的メンバを使ってみよう
+ */
+console.log('--- LESSON12 ---')
+class User12 {
+  constructor(public name: string) {
+    User12.count++
+  }
+  
+  static count: number = 0
+
+  static showDescription(): void {
+    console.log('this class is about users.')
+  }
+}
+
+var tom12 = new User12('tom')
+var bob12 = new User12('bob')
+var backs12 = new User12('backs')
+console.log(User12.count)
+User12.showDescription()

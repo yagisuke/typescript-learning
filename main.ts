@@ -137,3 +137,48 @@ var tom10 = new User10('Tom')
 tom10.name = 'TOM'
 console.log(tom10.name)
 tom10.sayHi()
+
+/*
+ * lesson11: クラスを継承させよう
+ */
+console.log('--- LESSON11 ---')
+class User11 {
+  // protected は自分自身、または継承したクラス内でのみ参照可能となる
+  constructor(protected _name: string) {}
+
+  public sayHi(): void {
+    console.log(`hi! i am ${this._name}.`)
+  }
+}
+
+class AdminUser11 extends User11 {
+  private _age: number
+
+  constructor(_name: string, _age: number) {
+    super(_name)
+    this._age = _age
+  }
+
+  public sayHi(): void {
+    console.log(`my age: ${this._age}.`)
+    super.sayHi()
+  }
+}
+
+class HogeUser11 extends User11 {
+  private _age: number
+
+  constructor(_name: string, _age: number) {
+    super(_name)
+    this._age = _age
+  }
+
+  public sayHi(): void {
+    console.log(`my name is ${this._name}(${this._age}).`)
+  }
+}
+
+var bob11 = new AdminUser11('Bob', 23)
+bob11.sayHi()
+var crie11 = new HogeUser11('Crie', 32)
+crie11.sayHi()

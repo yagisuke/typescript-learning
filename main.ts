@@ -3,6 +3,7 @@
  */
 // $tsc main.ts // -> create the main.js
 // $node main.js // -> display hello world
+console.log('--- LESSON2 ---')
 class User {}
 console.log('hello world')
 
@@ -40,7 +41,33 @@ enum Signal {
   Red = 2
 }
 var result: Signal
+console.log('--- LESSON5 ---')
 console.log('1: ', 0 === Signal.Blue) // -> true
 console.log('2: ', 'Blue' === Signal[0]) // -> true
 console.log('3: ', Signal.Yellow) // -> 1
 console.log('4: ', Signal[2]) // -> Red
+
+/*
+ * lesson6: 関数宣言を使ってみよう
+ */
+console.log('--- LESSON6 ---')
+a6(1, 2)
+console.log(b6(3, 4))
+console.log(c6(5))
+console.log(c6(5, 6))
+console.log(d6(7))
+console.log(c6(7, 8))
+
+function a6(a: number, b: number): void {
+  console.log(a + b)
+}
+function b6(a: number, b: number): number {
+  return a + b
+}
+function c6(a: number, b?: number): number {
+  if (!b) return a + a
+  return a + b
+}
+function d6(a: number, b: number = 20): number {
+  return a + b
+}

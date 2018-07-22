@@ -3,7 +3,7 @@
  */
 // $tsc main.ts // -> create the main.js
 // $node main.js // -> display hello world
-class User {}
+class User2 {}
 console.log('--- LESSON2 ---')
 console.log('hello world')
 
@@ -84,10 +84,31 @@ console.log(a7(1, 2))
 function add(a: number, b: number): number // 関数のシグネチャ
 function add(a: string, b: string): string
 function add(a: any, b: any): any {
-  if (typeof a === 'string' && typeof b === 'string') return a + ' ' + b
+  if (typeof a === 'string' && typeof b === 'string') return `${a} ${b}`
   return a + b
 }
 console.log('--- LESSON8 ---')
 console.log(add(1, 2))
 console.log(add('hello', 'world'))
 // console.log(add(3, 'world')) -> compile error
+
+/*
+ * lesson9: クラスを使ってみよう
+ */
+class User9 {
+  // name: string
+  // constructor(name: string) {
+  //   this.name = name
+  // }
+  constructor(public name: string) {
+    this.name = name
+  }
+
+  sayHi(): void {
+    console.log(`hi! i am ${this.name}.`)
+  }
+}
+var tom9 = new User9('Tom')
+console.log('--- LESSON9 ---')
+console.log(tom9.name)
+tom9.sayHi()

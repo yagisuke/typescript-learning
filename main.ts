@@ -3,13 +3,14 @@
  */
 // $tsc main.ts // -> create the main.js
 // $node main.js // -> display hello world
-class User2 {}
 console.log('--- LESSON2 ---')
+class User2 {}
 console.log('hello world')
 
 /*
  * lesson3: 静的型付けをしてみよう
  */
+console.log('--- LESSON3 ---')
 // js は動的型付けで以下のようにしても大丈夫だが、
 // ts は静的型付けなのでエラーとなり、安全なプログラミングが実現できる
 // var a3 = 10
@@ -18,6 +19,7 @@ console.log('hello world')
 /*
  * lesson4: さまざまな型を使ってみよう
  */
+console.log('--- LESSON4 ---')
 var a4: number
 var b4: number = 10
 var c4 = 10 // -> 型推論によりnumber型となる
@@ -33,15 +35,15 @@ var e5: number[]
 e5 = [1, 2, 3]
 
 /*
- * lesson5: 列挙型を使ってみよう
- */
+* lesson5: 列挙型を使ってみよう
+*/
+console.log('--- LESSON5 ---')
 enum Signal {
   Blue = 0,
   Yellow = 1,
   Red = 2
 }
 var result: Signal
-console.log('--- LESSON5 ---')
 console.log('1: ', 0 === Signal.Blue) // -> true
 console.log('2: ', 'Blue' === Signal[0]) // -> true
 console.log('3: ', Signal.Yellow) // -> 1
@@ -50,6 +52,7 @@ console.log('4: ', Signal[2]) // -> Red
 /*
  * lesson6: 関数宣言を使ってみよう
  */
+console.log('--- LESSON6 ---')
 function a6(a: number, b: number): void {
   console.log(a + b)
 }
@@ -63,7 +66,6 @@ function c6(a: number, b?: number): number {
 function d6(a: number, b: number = 20): number {
   return a + b
 }
-console.log('--- LESSON6 ---')
 a6(1, 2)
 console.log(b6(3, 4))
 console.log(c6(5))
@@ -72,8 +74,8 @@ console.log(d6(7))
 console.log(c6(7, 8))
 
 /*
- * lesson7: 関数式を使ってみよう
- */
+* lesson7: 関数式を使ってみよう
+*/
 console.log('--- LESSON7 ---')
 var a7 = (a: number, b: number): number => a + b
 console.log(a7(1, 2))
@@ -81,13 +83,13 @@ console.log(a7(1, 2))
 /*
  * lesson8: 関数のオーバーロードを使ってみよう
  */
+console.log('--- LESSON8 ---')
 function add(a: number, b: number): number // 関数のシグネチャ
 function add(a: string, b: string): string
 function add(a: any, b: any): any {
   if (typeof a === 'string' && typeof b === 'string') return `${a} ${b}`
   return a + b
 }
-console.log('--- LESSON8 ---')
 console.log(add(1, 2))
 console.log(add('hello', 'world'))
 // console.log(add(3, 'world')) -> compile error
@@ -95,6 +97,7 @@ console.log(add('hello', 'world'))
 /*
  * lesson9: クラスを使ってみよう
  */
+console.log('--- LESSON9 ---')
 class User9 {
   // name: string
   // constructor(name: string) {
@@ -107,13 +110,13 @@ class User9 {
   }
 }
 var tom9 = new User9('Tom')
-console.log('--- LESSON9 ---')
 console.log(tom9.name)
 tom9.sayHi()
 
 /*
  * lesson10: getterやsetterを使ってみよう
  */
+console.log('--- LESSON10 ---')
 class User10 {
   constructor(private _name: string) {}
 
@@ -130,7 +133,6 @@ class User10 {
   }
 }
 var tom10 = new User10('Tom')
-console.log('--- LESSON10 ---')
 // tom10._name -> private は、外から参照できない
 tom10.name = 'TOM'
 console.log(tom10.name)

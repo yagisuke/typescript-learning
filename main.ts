@@ -243,3 +243,34 @@ var bobResult14 = {
 }
 console.log(getTotal14(tomResult14))
 console.log(getTotal14(bobResult14))
+
+/*
+ * lesson15: インターフェースを実装してみよう
+ */
+console.log('--- LESSON15 ---')
+// interfaceとclassを組み合わせると
+// 指定した変数や関数を必ず実装させるようにすることができる
+interface GameUser15 {
+  score: number
+  showScore(): void
+}
+
+class User15 implements GameUser15 {
+  public name: string
+  public score: number = 0
+
+  constructor(name: string) {
+    this.name = name
+  }
+
+  public sayHi(): void {
+    console.log(`hi! i am ${this.name}`)
+  }
+
+  public showScore(): void {
+    console.log(`score ${this.score}`)
+  }
+}
+
+var tom15 = new User15('tom')
+tom15.showScore()

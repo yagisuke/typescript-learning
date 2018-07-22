@@ -290,3 +290,42 @@ function getArray16<T>(value: T): T[] {
 }
 console.log(getArray16(3))
 console.log(getArray16('text'))
+
+/*
+ * lesson17: ジェネリクスに制約を与えてみよう
+ */
+console.log('--- LESSON17 ---')
+class MyData17<T> {
+  constructor(public value: T) {}
+
+  getArray(): T[] {
+    return [this.value, this.value, this.value]
+  }
+}
+var a17 = new MyData17<string>('hello')
+console.log(a17.getArray())
+var b17 = new MyData17<number>(3)
+console.log(b17.getArray())
+
+interface Result17 {
+  a: number
+  b: number
+}
+interface FinalResult17 {
+  a: number
+  b: number
+  c: string
+}
+
+class OurData17<T extends Result17> {
+  constructor(public value: T) {}
+
+  getArray(): T[] {
+    return [this.value, this.value, this.value]
+  }
+}
+
+var c17 = new OurData17<Result17>({ a: 4, b: 5 })
+console.log(c17.getArray())
+var d17 = new OurData17<FinalResult17>({ a: 4, b: 5, c: 'text' })
+console.log(d17.getArray())

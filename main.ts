@@ -71,3 +71,10 @@ function c6(a: number, b?: number): number {
 function d6(a: number, b: number = 20): number {
   return a + b
 }
+
+/*
+ * lesson7: 関数式を使ってみよう
+ */
+console.log('--- LESSON7 ---')
+var a7 = (a: number, b: number): number => a + b
+console.log(a7(1, 2))

@@ -1,3 +1,5 @@
+/// <reference path="./other.ts" />
+
 /*
  * lesson2: はじめてのTypeScript
  */
@@ -329,3 +331,21 @@ var c17 = new OurData17<Result17>({ a: 4, b: 5 })
 console.log(c17.getArray())
 var d17 = new OurData17<FinalResult17>({ a: 4, b: 5, c: 'text' })
 console.log(d17.getArray())
+
+/*
+ * lesson18: 内部モジュールを使ってみよう
+ */
+console.log('--- LESSON18 ---')
+
+module UserModule18 {
+  export var name = 'yagisuke'
+  export module AddressModule {
+    export var zip = '111-1111'
+  }
+}
+
+console.log(UserModule18.name)
+console.log(UserModule18.AddressModule.zip)
+
+console.log(OtherModule18.name)
+console.log(OtherModule18.AddressModule.zip)
